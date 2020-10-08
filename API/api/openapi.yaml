@@ -7,99 +7,10 @@ info:
   description: This API provides the neccesary data for the Family Lock project
   title: Family Lock API
   version: "1.0"
+servers:
+- url: /
 paths:
   /device_MAC:
-    get:
-      description: Return all the MAC devices
-      operationId: getDeviceMAC
-      parameters:
-        - in: query
-          name: DeviceMAC
-          description: Device MAC
-          schema:
-            type: string
-      responses:
-        200:
-          content:
-            text/plain:
-              schema:
-                example: OK
-                title: OK
-                type: string
-            application/json:
-              schema:
-                example: OK
-                title: OK
-                type: string
-          description: OK
-        404:
-          content:
-            text/plain:
-              schema:
-                example: Not found
-                title: Endpoint not found
-                type: string
-          description: Not found response
-        405:
-          content:
-            text/plain:
-              schema:
-                example: The format is not valid
-                title: Invalid input
-                type: string
-          description: Invalid input
-      summary: Return all the devices MACs
-      tags:
-      - DeviceMAC
-      x-swagger-router-controller: DeviceMAC
-    post:
-      description: Addition of a new device MAC
-      operationId: postDeviceMAC
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items: 
-                $ref: '#/components/schemas/DeviceMAC'
-        required: true
-      responses:
-        201:
-          content:
-            text/plain:
-              schema:
-                example: Created
-                title: Created
-                type: string
-          description: Created
-        404:
-          content:
-            text/plain:
-              schema:
-                example: Not found
-                title: Endpoint not found
-                type: string
-          description: Not found response
-        405:
-          content:
-            text/plain:
-              schema:
-                example: The format is not valid
-                title: Invalid input
-                type: string
-          description: Invalid input
-        409:
-          content:
-            text/plain:
-              schema:
-                example: There is a conflict
-                title: Index conflict
-                type: string
-          description: DB index conflict
-      summary: Add a new Device MAC.
-      tags:
-      - DeviceMAC
-      x-swagger-router-controller: DeviceMAC
     delete:
       description: Delete the selected Device MAC.
       operationId: deleteDeviceMAC
@@ -141,6 +52,100 @@ paths:
       tags:
       - DeviceMAC
       x-swagger-router-controller: DeviceMAC
+    get:
+      description: Return all the MAC devices
+      operationId: getDeviceMAC
+      parameters:
+      - description: Device MAC
+        explode: true
+        in: query
+        name: DeviceMAC
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        200:
+          content:
+            text/plain:
+              schema:
+                example: OK
+                title: OK
+                type: string
+            application/json:
+              schema:
+                example: OK
+                title: OK
+                type: string
+          description: OK
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Return all the devices MACs
+      tags:
+      - DeviceMAC
+      x-swagger-router-controller: DeviceMAC
+    post:
+      description: Addition of a new device MAC
+      operationId: postDeviceMAC
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/DeviceMAC'
+              type: array
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+        409:
+          content:
+            text/plain:
+              schema:
+                example: There is a conflict
+                title: Index conflict
+                type: string
+          description: DB index conflict
+      summary: Add a new Device MAC.
+      tags:
+      - DeviceMAC
+      x-swagger-router-controller: DeviceMAC
     put:
       description: Update a device MAC
       operationId: putDeviceMAC
@@ -148,7 +153,6 @@ paths:
         content:
           application/json:
             schema:
-              type: object
               properties:
                 person_id:
                   type: string
@@ -156,6 +160,7 @@ paths:
                   type: string
                 new_MAC:
                   type: string
+              type: object
         required: true
       responses:
         201:
@@ -194,16 +199,14 @@ paths:
       tags:
       - DeviceMAC
       x-swagger-router-controller: DeviceMAC
+components:
   schemas:
-    AllowedPlacesType:
-      example:
-        MAC: ff:ff:ff:ff:ff:ff:ff
-        name: FamilyLock
+    deviceMAC:
       properties:
-        MAC:
-          example: restaurant
+        person_id:
           type: string
-        name:
-          example: Restaurant
+        old_MAC:
+          type: string
+        new_MAC:
           type: string
       type: object
