@@ -8,12 +8,12 @@ info:
   title: Family Lock API
   version: "1.0"
 servers:
-- url: /
+- url: https://raw.githubusercontent.com/
 paths:
   /device_MAC:
     delete:
       description: Delete the selected Device MAC.
-      operationId: deleteDeviceMAC
+      operationId: delete_device_mac
       parameters:
       - description: Device MAC
         explode: true
@@ -52,9 +52,10 @@ paths:
       tags:
       - DeviceMAC
       x-swagger-router-controller: DeviceMAC
+      x-openapi-router-controller: openapi_server.controllers.device_mac_controller
     get:
       description: Return all the MAC devices
-      operationId: getDeviceMAC
+      operationId: get_device_mac
       parameters:
       - description: Device MAC
         explode: true
@@ -98,9 +99,10 @@ paths:
       tags:
       - DeviceMAC
       x-swagger-router-controller: DeviceMAC
+      x-openapi-router-controller: openapi_server.controllers.device_mac_controller
     post:
       description: Addition of a new device MAC
-      operationId: postDeviceMAC
+      operationId: post_device_mac
       requestBody:
         content:
           application/json:
@@ -146,9 +148,10 @@ paths:
       tags:
       - DeviceMAC
       x-swagger-router-controller: DeviceMAC
+      x-openapi-router-controller: openapi_server.controllers.device_mac_controller
     put:
       description: Update a device MAC
-      operationId: putDeviceMAC
+      operationId: put_device_mac
       requestBody:
         content:
           application/json:
@@ -199,9 +202,10 @@ paths:
       tags:
       - DeviceMAC
       x-swagger-router-controller: DeviceMAC
+      x-openapi-router-controller: openapi_server.controllers.device_mac_controller
 components:
   schemas:
-    deviceMAC:
+    DeviceMAC:
       properties:
         person_id:
           type: string
