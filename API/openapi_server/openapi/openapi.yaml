@@ -107,9 +107,7 @@ paths:
         content:
           application/json:
             schema:
-              items:
-                $ref: '#/components/schemas/DeviceMAC'
-              type: array
+              $ref: '#/components/schemas/DeviceMAC'
         required: true
       responses:
         201:
@@ -156,14 +154,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                person_id:
-                  type: string
-                old_MAC:
-                  type: string
-                new_MAC:
-                  type: string
-              type: object
+              $ref: '#/components/schemas/DeviceMAC'
         required: true
       responses:
         201:
