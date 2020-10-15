@@ -18,11 +18,14 @@ paths:
       - description: Device MAC
         explode: true
         in: query
-        name: type
+        name: DeviceMAC
         required: true
         schema:
           type: string
-        style: form
+        style: form 
+        example:
+          person_MAC: ff:ff:ff:ff:ff
+        x-body-name: device_mac
       responses:
         201:
           content:
@@ -65,6 +68,9 @@ paths:
         schema:
           type: string
         style: form
+        example:
+          person_MAC: ff:ff:ff:ff:ff
+        x-body-name: device_mac
       responses:
         200:
           content:
@@ -154,7 +160,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DeviceMAC'
+              $ref: '#/components/schemas/NewDeviceMAC'
         required: true
       responses:
         201:
@@ -197,11 +203,34 @@ paths:
 components:
   schemas:
     DeviceMAC:
+      example:
+        person_MAC: person_MAC
+        person_name: person_name
+        person_phone_number: 000000000
+        notification: 0
       properties:
-        person_id:
+        person_MAC:
+          type: array
+          items:
+            type: string
+        person_name:
           type: string
+        person_phone_number:
+          type: string
+        notification:
+          type: boolean
+      type: object
+      x-body-name: device_mac
+          
+    NewDeviceMAC:
+      example:
+        new_MAC: 00:00:00:00:00
+        old_MAC: ff:ff:ff:ff:ff
+      properties:
         old_MAC:
           type: string
         new_MAC:
           type: string
       type: object
+      x-body-name: new_device_mac
+
