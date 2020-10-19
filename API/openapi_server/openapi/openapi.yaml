@@ -204,10 +204,11 @@ components:
   schemas:
     DeviceMAC:
       example:
-        person_MAC: person_MAC
-        person_name: person_name
-        person_phone_number: 000000000
-        notification: 0
+        person_MAC: [ff:ff:ff:ff:ff]
+        person_name: Luis
+        person_phone_number: "000000000"
+        notification: true
+        dest_MAC: ""
       properties:
         person_MAC:
           type: array
@@ -219,6 +220,8 @@ components:
           type: string
         notification:
           type: boolean
+        dest_MAC:
+          type: string
       type: object
       x-body-name: device_mac
           
