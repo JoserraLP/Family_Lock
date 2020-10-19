@@ -204,7 +204,7 @@ components:
   schemas:
     DeviceMAC:
       example:
-        person_MAC: [ff:ff:ff:ff:ff]
+        person_MAC: ["ff:ff:ff:ff:ff"]
         person_name: Luis
         person_phone_number: "000000000"
         notification: true
