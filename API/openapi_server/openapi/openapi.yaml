@@ -224,7 +224,6 @@ components:
           type: string
       type: object
       x-body-name: device_mac
-          
     NewDeviceMAC:
       example:
         new_MAC: 00:00:00:00:00
