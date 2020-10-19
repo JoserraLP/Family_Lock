@@ -18,14 +18,13 @@ paths:
       - description: Device MAC
         explode: true
         in: query
-        name: DeviceMAC
+        name: device_mac
         required: true
         schema:
           type: string
         style: form 
         example:
           person_MAC: ff:ff:ff:ff:ff
-        x-body-name: device_mac
       responses:
         201:
           content:
@@ -63,14 +62,13 @@ paths:
       - description: Device MAC
         explode: true
         in: query
-        name: DeviceMAC
+        name: device_mac
         required: false
         schema:
           type: string
         style: form
         example:
-          person_MAC: ff:ff:ff:ff:ff
-        x-body-name: device_mac
+          device_mac: ff:ff:ff:ff:ff
       responses:
         200:
           content:

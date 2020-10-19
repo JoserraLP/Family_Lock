@@ -15,31 +15,41 @@ class DeviceMAC(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, person_id=None, old_mac=None, new_mac=None):  # noqa: E501
+    def __init__(self, person_mac=None, person_name=None, person_phone_number=None, notification=None, dest_mac=None):  # noqa: E501
         """DeviceMAC - a model defined in OpenAPI
 
-        :param person_id: The person_id of this DeviceMAC.  # noqa: E501
-        :type person_id: str
-        :param old_mac: The old_mac of this DeviceMAC.  # noqa: E501
-        :type old_mac: str
-        :param new_mac: The new_mac of this DeviceMAC.  # noqa: E501
-        :type new_mac: str
+        :param person_mac: The person_mac of this DeviceMAC.  # noqa: E501
+        :type person_mac: List[str]
+        :param person_name: The person_name of this DeviceMAC.  # noqa: E501
+        :type person_name: str
+        :param person_phone_number: The person_phone_number of this DeviceMAC.  # noqa: E501
+        :type person_phone_number: str
+        :param notification: The notification of this DeviceMAC.  # noqa: E501
+        :type notification: bool
+        :param dest_mac: The dest_mac of this DeviceMAC.  # noqa: E501
+        :type dest_mac: str
         """
         self.openapi_types = {
-            'person_id': str,
-            'old_mac': str,
-            'new_mac': str
+            'person_mac': List[str],
+            'person_name': str,
+            'person_phone_number': str,
+            'notification': bool,
+            'dest_mac': str
         }
 
         self.attribute_map = {
-            'person_id': 'person_id',
-            'old_mac': 'old_MAC',
-            'new_mac': 'new_MAC'
+            'person_mac': 'person_MAC',
+            'person_name': 'person_name',
+            'person_phone_number': 'person_phone_number',
+            'notification': 'notification',
+            'dest_mac': 'dest_MAC'
         }
 
-        self._person_id = person_id
-        self._old_mac = old_mac
-        self._new_mac = new_mac
+        self._person_mac = person_mac
+        self._person_name = person_name
+        self._person_phone_number = person_phone_number
+        self._notification = notification
+        self._dest_mac = dest_mac
 
     @classmethod
     def from_dict(cls, dikt) -> 'DeviceMAC':
@@ -47,70 +57,112 @@ class DeviceMAC(Model):
 
         :param dikt: A dict.
         :type: dict
-        :return: The deviceMAC of this DeviceMAC.  # noqa: E501
+        :return: The DeviceMAC of this DeviceMAC.  # noqa: E501
         :rtype: DeviceMAC
         """
         return util.deserialize_model(dikt, cls)
 
     @property
-    def person_id(self):
-        """Gets the person_id of this DeviceMAC.
+    def person_mac(self):
+        """Gets the person_mac of this DeviceMAC.
 
 
-        :return: The person_id of this DeviceMAC.
-        :rtype: str
+        :return: The person_mac of this DeviceMAC.
+        :rtype: List[str]
         """
-        return self._person_id
+        return self._person_mac
 
-    @person_id.setter
-    def person_id(self, person_id):
-        """Sets the person_id of this DeviceMAC.
+    @person_mac.setter
+    def person_mac(self, person_mac):
+        """Sets the person_mac of this DeviceMAC.
 
 
-        :param person_id: The person_id of this DeviceMAC.
-        :type person_id: str
+        :param person_mac: The person_mac of this DeviceMAC.
+        :type person_mac: List[str]
         """
 
-        self._person_id = person_id
+        self._person_mac = person_mac
 
     @property
-    def old_mac(self):
-        """Gets the old_mac of this DeviceMAC.
+    def person_name(self):
+        """Gets the person_name of this DeviceMAC.
 
 
-        :return: The old_mac of this DeviceMAC.
+        :return: The person_name of this DeviceMAC.
         :rtype: str
         """
-        return self._old_mac
+        return self._person_name
 
-    @old_mac.setter
-    def old_mac(self, old_mac):
-        """Sets the old_mac of this DeviceMAC.
+    @person_name.setter
+    def person_name(self, person_name):
+        """Sets the person_name of this DeviceMAC.
 
 
-        :param old_mac: The old_mac of this DeviceMAC.
-        :type old_mac: str
+        :param person_name: The person_name of this DeviceMAC.
+        :type person_name: str
         """
 
-        self._old_mac = old_mac
+        self._person_name = person_name
 
     @property
-    def new_mac(self):
-        """Gets the new_mac of this DeviceMAC.
+    def person_phone_number(self):
+        """Gets the person_phone_number of this DeviceMAC.
 
 
-        :return: The new_mac of this DeviceMAC.
+        :return: The person_phone_number of this DeviceMAC.
         :rtype: str
         """
-        return self._new_mac
+        return self._person_phone_number
 
-    @new_mac.setter
-    def new_mac(self, new_mac):
-        """Sets the new_mac of this DeviceMAC.
+    @person_phone_number.setter
+    def person_phone_number(self, person_phone_number):
+        """Sets the person_phone_number of this DeviceMAC.
 
 
-        :param new_mac: The new_mac of this DeviceMAC.
-        :type new_mac: str
+        :param person_phone_number: The person_phone_number of this DeviceMAC.
+        :type person_phone_number: str
         """
 
-        self._new_mac = new_mac
+        self._person_phone_number = person_phone_number
+
+    @property
+    def notification(self):
+        """Gets the notification of this DeviceMAC.
+
+
+        :return: The notification of this DeviceMAC.
+        :rtype: bool
+        """
+        return self._notification
+
+    @notification.setter
+    def notification(self, notification):
+        """Sets the notification of this DeviceMAC.
+
+
+        :param notification: The notification of this DeviceMAC.
+        :type notification: bool
+        """
+
+        self._notification = notification
+
+    @property
+    def dest_mac(self):
+        """Gets the dest_mac of this DeviceMAC.
+
+
+        :return: The dest_mac of this DeviceMAC.
+        :rtype: str
+        """
+        return self._dest_mac
+
+    @dest_mac.setter
+    def dest_mac(self, dest_mac):
+        """Sets the dest_mac of this DeviceMAC.
+
+
+        :param dest_mac: The dest_mac of this DeviceMAC.
+        :type dest_mac: str
+        """
+
+        self._dest_mac = dest_mac

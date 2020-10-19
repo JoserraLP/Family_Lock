@@ -6,7 +6,6 @@ from flask import json
 from six import BytesIO
 
 from openapi_server.models.device_mac import DeviceMAC  # noqa: E501
-from openapi_server.models.inline_object import InlineObject  # noqa: E501
 from openapi_server.test import BaseTestCase
 
 
@@ -44,11 +43,11 @@ class TestDeviceMACController(BaseTestCase):
 
         Add a new Device MAC.
         """
-        device_macList = None
+        device_mac = DeviceMAC()
         response = self.client.open(
             '/device_MAC',
             method='POST',
-            data=json.dumps(device_macList),
+            data=json.dumps(device_mac),
             content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -58,11 +57,11 @@ class TestDeviceMACController(BaseTestCase):
 
         Update a device MAC
         """
-        inline_object = InlineObject()
+        device_mac = DeviceMAC()
         response = self.client.open(
             '/device_MAC',
             method='PUT',
-            data=json.dumps(inline_object),
+            data=json.dumps(device_mac),
             content_type='application/json')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
